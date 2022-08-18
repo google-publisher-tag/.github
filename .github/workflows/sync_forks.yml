@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: TobKed/github-forks-sync-action@v0.2.0
         with:
-          github_token: ${{ secrets.PUBTGS_BOT_REPO_TOKEN }}
+          github_token: ${{ secrets.PUBTAGS_BOT_REPO_TOKEN }}
           upstream_repository: DefinitelyTyped/DefinitelyTyped
           target_repository: publisher-ads-audit-bot/DefinitelyTyped
           upstream_branch: master
