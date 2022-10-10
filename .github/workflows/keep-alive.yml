@@ -1,0 +1,15 @@
+name: Keep workflows alive
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  keep_workflows_alive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gautamkrishnar/keepalive-workflow@v1
+        with:
+          commit_message: Automated commit to keep workflows alive
+          committer_username: publisher-ads-audits-bot
+          committer_email: publisher-ads-audits-bot@google.com
