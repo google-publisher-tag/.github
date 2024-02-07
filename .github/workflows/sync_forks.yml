@@ -33,3 +33,16 @@ jobs:
           target_branch: master
           force: true
           tags: true
+
+  update_gpt_playground_fork:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TobKed/github-forks-sync-action@v0.2.0
+        with:
+          github_token: ${{ secrets.PUBTAGS_BOT_REPO_TOKEN }}
+          upstream_repository: googleads/google-publisher-tag-playground
+          target_repository: publisher-ads-audits-bot/google-publisher-tag-playground
+          upstream_branch: main
+          target_branch: main
+          force: true
+          tags: true
