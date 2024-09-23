@@ -24,7 +24,7 @@ jobs:
   update_definitelytyped_fork:
     runs-on: ubuntu-latest
     steps:
-      - uses: TobKed/github-forks-sync-action@v0.2.0
+      - uses: TobKed/github-forks-sync-action@v0.4.0
         with:
           github_token: ${{ secrets.PUBTAGS_BOT_REPO_TOKEN }}
           upstream_repository: DefinitelyTyped/DefinitelyTyped
