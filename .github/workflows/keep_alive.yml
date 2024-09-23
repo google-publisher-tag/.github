@@ -1,15 +1,33 @@
-name: Keep workflows alive
+# Copyright 2022 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: Keepalive Workflow
+
 on:
   schedule:
     - cron: "0 0 * * *"
 
+permissions:
+  actions: write
+
 jobs:
-  keep_workflows_alive:
+  cronjob-based-github-action:
+    name: Keepalive Workflow
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: gautamkrishnar/keepalive-workflow@v1
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
         with:
-          commit_message: Automated commit to keep workflows alive
-          committer_username: publisher-ads-audits-bot
-          committer_email: publisher-ads-audits-bot@google.com
+          workflow_files: "sync_forks.yml"
+          time_elapsed: "0"
